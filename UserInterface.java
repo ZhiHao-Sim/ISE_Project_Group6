@@ -1,5 +1,5 @@
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -7,9 +7,7 @@ public class UserInterface {
     public static void main(String[]args){
     Scanner sc = new Scanner(System.in);
     int choice;
-    String source, target, country, hemisphere, season;
-    float localTime, convertedTime;
-    LocalDate today;
+    String source, target, country, hemisphere, season, localTime;
 
 
         do { 
@@ -25,36 +23,36 @@ public class UserInterface {
             switch(choice)
             {
                 case 1:
-                try{
-                    System.out.print("Enter source country: ");
+                    System.out.print("\nEnter source country: ");
                     source = sc.nextLine();
-
                     System.out.print("Enter target country: ");
                     target = sc.nextLine();
-
                     System.out.print("Enter local time (HH:mm): ");
-                    localTime = sc.nextFloat();
+                    localTime = sc.nextLine();
 
-                    System.out.print("Converted time in " + target + ": " + convertedTime);
-                }catch (Exception e) {
-                    System.out.println("Error " + e.getMessage());
-                }
-                break;
+                    try {
+                        ZonedDateTime convertedTime = TimeConverter.convertTime(source, target, localTime);
+                        System.out.println("Converted time in " + target + ": " + convertedTime.toLocalTime());
+                    } catch (Exception e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                    System.out.println("");
+                    break;
 
-                case 2:
-                try{
-                    System.out.print("Enter country: ");
-                    country = sc.nextLine();
+                // case 2:
+                // try{
+                //     System.out.print("\nEnter country: ");
+                //     country = sc.nextLine();
 
-                    System.out.println("Current date: " + today);
+                //     System.out.println("Current date: " + today);
 
-                    System.out.println(country + " is in the " + hemisphere + " Hemisphere.");
+                //     System.out.println(country + " is in the " + hemisphere + " Hemisphere.");
                     
-                    System.out.println("Current season in " + country + ": " + season);
-                } catch (Exception e){
-                    System.out.println("Error " + e.getMessage());
-                }
-                break;
+                //     System.out.println("Current season in " + country + ": " + season);
+                // } catch (Exception e){
+                //     System.out.println("Error " + e.getMessage());
+                // }
+                // break;
 
                 case 3:
                 System.out.println("Goodbye!");
