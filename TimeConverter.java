@@ -7,8 +7,12 @@ public class TimeConverter {
         ZoneId targetCountry = getCountry(target);
 
         LocalTime localTimeParsed = LocalTime.parse(localTime);
+        LocalDateTime localDateTime = LocalDateTime.of(LocalDate.now(), localTimeParsed);
 
-        return null;
+        ZonedDateTime sourceDateTime = localDateTime.atZone(sourceCountry);
+        ZonedDateTime sourceDateTime2 = sourceDateTime.withZoneSameInstant(targetCountry);
+        
+        return sourceDateTime2;
     }
 
     public static ZoneId getCountry(String country) 
