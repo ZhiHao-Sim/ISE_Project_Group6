@@ -1,8 +1,44 @@
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
+// timeZoneID https://docs.oracle.com/cd/E84527_01/wcs/tag-ref/MISC/TimeZones.html
+
+import java.time.*;
 import java.util.Scanner;
 
 public class UserInterface {
+
+    public static ZoneId getCountry(String country) 
+    {
+        String lowerCase = country.toLowerCase();
+
+        if (lowerCase.equals("china")){
+            return ZoneId.of("Asia/Shanghai");
+        } else if (lowerCase.equals("taiwan")) {
+            return ZoneId.of("Asia/Taipei");
+        } else if (lowerCase.equals("korea")) {
+            return ZoneId.of("Asia/Seoul");
+        } else if (lowerCase.equals("pakistan")) {
+            return ZoneId.of("Asia/Karachi");
+        } else if (lowerCase.equals("japan")) {
+            return ZoneId.of("Asia/Tokyo");
+        } else if (lowerCase.equals("spain")) {
+            return ZoneId.of("Europe/Madrid");
+        } else if (lowerCase.equals("russia")) {
+            return ZoneId.of("Europe/Moscow");
+        } else if (lowerCase.equals("france")) {
+            return ZoneId.of("Europe/Paris");
+        } else if (lowerCase.equals("germany")) {
+            return ZoneId.of("Europe/Berlin");
+        } else if (lowerCase.equals("usa")) {
+            return ZoneId.of("America/New_York");
+        } else if (lowerCase.equals("canada")) {
+            return ZoneId.of("America/Toronto");
+        } else if (lowerCase.equals("brazil")) {
+            return ZoneId.of("America/Sao_Paulo");
+        } else if (lowerCase.equals("australia")) {
+            return ZoneId.of("Australia/Sydney");
+        } else {
+            throw new IllegalArgumentException("Invalid country name: " + country + "Please try again");
+        }
+    } 
 
     public static void main(String[]args){
     Scanner sc = new Scanner(System.in);
