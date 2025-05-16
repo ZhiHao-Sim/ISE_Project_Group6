@@ -1,0 +1,55 @@
+public class MatchDate {
+  private Date date;
+  public String checkMonth() {
+    this.date
+    //.....
+  }
+}
+
+// Northern Hemisphere or Southern Hemisphere
+public class MatchHemisphere {
+  private String country
+  public void setCountry (String country) {
+    this.country = country;
+  }
+  public String checkGeography () {
+    String lowerCase = country.toLowerCase();
+
+    if (lowerCase.equals("china")){
+        
+    } else if (lowerCase.equals("taiwan")) {
+        
+    } else if (lowerCase.equals("korea")) {
+        
+    } else if (lowerCase.equals("pakistan")) {
+        
+    } else if (lowerCase.equals("japan")) {
+        
+    } else if (lowerCase.equals("spain")) {
+        
+    } else if (lowerCase.equals("russia")) {
+        
+    } else if (lowerCase.equals("france")) {
+        
+    } else if (lowerCase.equals("germany")) {
+        
+    } else if (lowerCase.equals("usa")) {
+        
+    } else if (lowerCase.equals("canada")) {
+        
+    } else if (lowerCase.equals("brazil")) {
+        
+    } else if (lowerCase.equals("australia")) {
+        
+    } else {
+        throw new IllegalArgumentException("Invalid country name: " + country + "Please try again");
+    }
+  }
+}
+
+
+public class MatchingSeason {
+  public String matchingSeason () {
+    if ()
+  }
+}

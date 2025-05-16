@@ -43,7 +43,8 @@ public class UserInterface {
     public static void main(String[]args){
     Scanner sc = new Scanner(System.in);
     int choice;
-    String source, target, country, hemisphere, season, localTime;
+    String source, target, country, hemisphere, season, localTime; 
+    LocalDate today;
 
 
         do { 
@@ -75,20 +76,25 @@ public class UserInterface {
                     System.out.println("");
                     break;
 
-                // case 2:
-                // try{
-                //     System.out.print("\nEnter country: ");
-                //     country = sc.nextLine();
+                case 2:
+                try{
+                    System.out.print("\nEnter country: ");
+                    country = sc.nextLine();
 
-                //     System.out.println("Current date: " + today);
+                    today = LocalDate.now();
 
-                //     System.out.println(country + " is in the " + hemisphere + " Hemisphere.");
+                    System.out.println("Current date: " + today);
+
+                    MatchHemisphere matchHemisphere = new MatchHemisphere();
+                    hemisphere = matchHemisphere.getHemisphere();
+
+                    System.out.println(country + " is in the " + hemisphere + " Hemisphere.");
                     
-                //     System.out.println("Current season in " + country + ": " + season);
-                // } catch (Exception e){
-                //     System.out.println("Error " + e.getMessage());
-                // }
-                // break;
+                    // System.out.println("Current season in " + country + ": " + season);
+                } catch (Exception e){
+                    System.out.println("Error " + e.getMessage());
+                }
+                break;
 
                 case 3:
                 System.out.println("Goodbye!");
