@@ -1,11 +1,3 @@
-public class MatchDate {
-  private Date date;
-  public String checkMonth() {
-    this.date
-    //.....
-  }
-}
-
 // Northern Hemisphere or Southern Hemisphere
 public class MatchHemisphere {
   private String country
