@@ -49,7 +49,7 @@ public class MatchHemisphere {
 
 
 public class MatchingSeason {
-  public String matchingSeason () {
+  public String matchingSeason (Date date, String hemisphere) {
     if ()
   }
 }
