@@ -1,16 +1,19 @@
 // timeZoneID https://docs.oracle.com/cd/E84527_01/wcs/tag-ref/MISC/TimeZones.html
+//https://www.youtube.com/watch?v=FlMZhN9vzSI  Input Validation for Integer only
 
-import java.time.*;
+import java.time.*; // imports classes for handling dates, times and time zones
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
 
     public static ZoneId getCountry(String country) 
     {
-        String lowerCase = country.toLowerCase();
+        String lowerCase = country.toLowerCase(); // Convert Country to LowerCase to ensure case insensitive like China, CHINA and china
 
+        //ZoneId.of(Continent/City) Continent: Asia, Europe, America, Australia and Africa
         if (lowerCase.equals("china")){
-            return ZoneId.of("Asia/Shanghai");
+            return ZoneId.of("Asia/Shanghai"); //return timeZone of Asia ShangHai
         } else if (lowerCase.equals("taiwan")) {
             return ZoneId.of("Asia/Taipei");
         } else if (lowerCase.equals("korea")) {
@@ -53,9 +56,17 @@ public class UserInterface {
             System.out.println("2. Determine Current Season");
             System.out.println("3. Exit");
             System.out.print("Enter choice: ");
-
-            choice = sc.nextInt();
-            sc.nextLine();
+            
+            while(true){
+                try {
+                    choice = sc.nextInt();
+                    break;
+                } catch (InputMismatchException e){
+                    System.out.println("Invalid input. Please enter integer only!!!!");
+                    sc.nextLine();
+                    System.out.print("Enter choice: ");
+                }
+            }
 
             switch(choice)
             {
@@ -68,7 +79,7 @@ public class UserInterface {
                     localTime = sc.nextLine();
 
                     try {
-                        ZonedDateTime convertedTime = TimeConverter.convertTime(source, target, localTime);
+                        ZonedDateTime convertedTime = TimeConverter.convertTime(source, target, localTime); //Convert time between two different zones
                         System.out.println("Converted time in " + target + ": " + convertedTime.toLocalTime());
                     } catch (Exception e) {
                         System.out.println("Error: " + e.getMessage());
